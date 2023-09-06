@@ -1,0 +1,40 @@
+li {
+  cursor: pointer;
+  background-color: #fff;
+  list-style: none;
+  text-align: center;
+  border-style: solid;
+  border-width: 0.5px;
+  /* position: relative; */
+}
+
+li:hover {
+  background-color: #f0f0f0;
+}
+
+img { 
+  height: 110px;
+  object-fit: contain;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+
+}
+
+#input {
+  height: fit-content;
+  position: relative;
+}
+
+ul {
+  position: absolute;
+  left: 0px;
+  padding: 0px;
+  width: 185px;
+  margin: 0;
+  overflow-y:  auto;
+  height: 30vh;
+}

@@ -1,0 +1,9 @@
+#root {
+  display: flex;
+  height: 98vh;
+  overflow-y: hidden;
+  justify-content: center;
+  align-content:center;
+  flex-wrap: wrap;
+  /* background-color: black; */
+}
