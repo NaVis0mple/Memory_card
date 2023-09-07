@@ -1,3 +1,46 @@
+#container {
+  display: flex;
+  height: 169px;
+  flex-direction: column;
+  border: solid black;
+}
+
+img { 
+  width: 185px;
+  height: 110px;
+  object-fit: contain;
+}
+
+.p {
+  width: 185px;
+  height: 110px;
+  text-align: center;
+  line-height: 110px;
+}
+
+
+button {
+  height: 19px;
+  width: 185px;
+  z-index: 50;
+}
+#input {
+  position: relative;
+}
+
+
+
+ul {
+  position: absolute;
+  left: 0px;
+  padding: 0px;
+  width: 185px;
+  margin: 0;
+  overflow-y:  auto;
+  height: 30vh;
+  top: 60px;
+}
+
 li {
   cursor: pointer;
   background-color: #fff;
@@ -12,29 +55,7 @@ li:hover {
   background-color: #f0f0f0;
 }
 
-img { 
-  height: 110px;
-  object-fit: contain;
-}
-
-#container {
-  display: flex;
-  flex-direction: column;
-  height: 150px;
-
-}
-
-#input {
-  height: fit-content;
-  position: relative;
-}
-
-ul {
+#result {
   position: absolute;
-  left: 0px;
-  padding: 0px;
-  width: 185px;
-  margin: 0;
-  overflow-y:  auto;
-  height: 30vh;
+  transform: translateY(-100%);
 }

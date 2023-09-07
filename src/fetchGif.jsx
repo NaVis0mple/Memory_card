@@ -1,40 +1,44 @@
 import { useState, useEffect } from 'react'
 import customOptions from './customOptions'
 import { Pokedex } from 'pokeapi-js-wrapper'
-const P = new Pokedex(customOptions)
 
-function FetchGif ({ data }) {
+function FetchGif ({ data, inputValue, setInputValue, name, setName }) {
+  const P = new Pokedex(customOptions)
   const [imgUrl, setImgUrl] = useState('')
-  function generateRandomName (list) {
-    const random = Math.floor(Math.random() * 650)
-    const name = list[random]
-    return name
-  }
+
+  const [loading, setLoading] = useState(true)
+
   useEffect(() => {
     async function fetchRandomGIF () {
-      if (data.length !== 650) return
-
       try {
-        const api = await P.getPokemonByName(generateRandomName(data))
+        setLoading(true)
+        const api = await P.getPokemonByName(name)
         const gif = api.sprites.versions['generation-v']['black-white'].animated.front_default
         if (!ignore) {
           setImgUrl(gif)
-          console.log('2')
         }
       } catch (error) {
         console.log(error)
+      } finally {
+        setLoading(false)
       }
     }
     let ignore = false
     fetchRandomGIF()
-    console.log('4')
+
     return () => {
       ignore = true
     }
-  }, [data])
+  }, [name])
 
   return (
-    <img src={imgUrl} />
+    <>
+      {loading
+        ? (<div className='p'>Loading...</div>)
+        : (
+          <img src={imgUrl} />)}
+
+    </>
   )
 }
 

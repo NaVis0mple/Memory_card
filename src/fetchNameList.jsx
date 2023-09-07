@@ -1,35 +1,17 @@
-import { useEffect, useState } from 'react'
 import customOptions from './customOptions'
 import { Pokedex } from 'pokeapi-js-wrapper'
 
-const P = new Pokedex(customOptions)
+async function fetchNameList () {
+  const P = new Pokedex(customOptions)
+  const interval = {
+    offset: 0,
+    limit: 650
+  }
+  // Generation V 0-650
+  const PokemonList = await P.getPokemonsList(interval)
+  const nameList = PokemonList.results.map(data => data.name)
 
-function FetchNameList () {
-  const [list, setList] = useState([])
-  useEffect(() => {
-    const interval = {
-      offset: 0,
-      limit: 650
-    }
-    async function fetchData () { // Generation V 0-650
-      try {
-        const PokemonList = await P.getPokemonsList(interval)
-        const nameList = PokemonList.results.map(data => data.name)
-        if (!ignore) {
-          setList(nameList)
-          console.log('3')
-        }
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    let ignore = false
-    fetchData()
-    console.log('1')
-    return () => { ignore = true }
-  }, [])
-
-  return list
+  return nameList
 }
 
-export default FetchNameList
+export default fetchNameList

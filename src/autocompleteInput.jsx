@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
-function AutocompleteInput ({ data }) {
-  const [inputValue, setInputValue] = useState('')
+function AutocompleteInput ({ data, inputValue, setInputValue }) {
   const [suggestion, setSuggestion] = useState([])
   const [suggestionClicked, setSuggestionClicked] = useState(false)
   const ref = useRef()
