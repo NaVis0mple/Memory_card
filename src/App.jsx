@@ -5,6 +5,7 @@ import customOptions from './customOptions'
 import AutocompleteInput from './autocompleteInput'
 import fetchNameList from './fetchNameList'
 import FetchGif from './fetchGif'
+import github from '../github-mark.png'
 
 function App () {
   const [FetchNameListData, setFetchNameListData] = useState([])
@@ -48,19 +49,26 @@ function App () {
   }
 
   return (
-    <div id='container'>
-      {FetchNameListData.length === 650
-        ? (
-          <>
-            <FetchGif data={FetchNameListData} inputValue={inputValue} setInputValue={setInputValue} name={name} setName={setName} />
-            <AutocompleteInput data={FetchNameListData} inputValue={inputValue} setInputValue={setInputValue} />
-            <button onClick={() => handleButtonClick()}>next</button>
-            <button onClick={() => handleCheckButtonClick()}>check</button>
-            <div id='result'>{result}</div>
-          </>
-          )
-        : <p>loading</p>}
-    </div>
+    <>
+      <div id='container'>
+        {FetchNameListData.length === 650
+          ? (
+            <>
+              <FetchGif data={FetchNameListData} inputValue={inputValue} setInputValue={setInputValue} name={name} setName={setName} />
+              <AutocompleteInput data={FetchNameListData} inputValue={inputValue} setInputValue={setInputValue} />
+              <button onClick={() => handleButtonClick()}>next</button>
+              <button onClick={() => handleCheckButtonClick()}>check</button>
+              <div id='result'>{result}</div>
+            </>
+            )
+          : <p>loading</p>}
+      </div>
+      <div>
+        <a href='https://github.com/NaVis0mple/Memory_card/tree/main' target='_blank' rel='noreferrer'>
+          <img id='github' src={github} alt='github' />
+        </a>
+      </div>
+    </>
   )
 }
 
